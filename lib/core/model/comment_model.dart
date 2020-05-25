@@ -30,7 +30,7 @@ final User schoolBoard = User(
     imageUrl: 'assets/images/profile_icon.png',
     userType: 'SCHOOL_BOARD');
 
-List<Comment> comments = [
+List<Comment> commentList = [
   Comment(
     sender: schoolBoard,
     text: 'This is how comments would look like on the mobile application',
@@ -81,12 +81,3 @@ String getTime() {
   return '$day ${months[month]}, $year';
 }
 
-void addNewComment(String commentText) {
-  comments.add(
-    Comment(
-      sender: currentUser,
-      time: getTime(),
-      text: commentText,
-    ),
-  );
-}

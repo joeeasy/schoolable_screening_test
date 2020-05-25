@@ -10,7 +10,7 @@ class CommentView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isMe = comments[index].sender.id == currentUser.id;
+    bool isMe = commentList[index].sender.id == currentUser.id;
     return Container(
       margin: EdgeInsets.only(top: 10),
       child: Column(
@@ -19,7 +19,7 @@ class CommentView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            margin: isMe ? EdgeInsets.only(left: 50) : EdgeInsets.only(left: 8.0),
+            margin: isMe ? EdgeInsets.only(left: 70) : EdgeInsets.only(left: 24.0),
             decoration: BoxDecoration(
               color: isMe ? Theme.of(context).primaryColor : Colors.white ,
               borderRadius: isMe ? currentUserborder : userCommentBorder,
@@ -45,7 +45,7 @@ class CommentView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  comments[index].text,
+                  commentList[index].text,
                   style: GoogleFonts.nunito(
                     textStyle: TextStyle(
                       height: 1.5,
@@ -61,7 +61,7 @@ class CommentView extends StatelessWidget {
                   children: <Widget>[
                     ClipOval(
                       child: Image.asset(
-                        comments[index].sender.imageUrl,
+                        commentList[index].sender.imageUrl,
                         height: 32,
                         width: 32,
                       ),
@@ -72,7 +72,7 @@ class CommentView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 10),
                       child: Text(
-                          isMe ? 'You' : comments[index].sender.name,
+                          isMe ? 'You' : commentList[index].sender.name,
                           style:isMe ? TextStyle(
                             color: Colors.white,
                             fontSize: 14
@@ -82,7 +82,7 @@ class CommentView extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 10.0),
                         child: Text(
-                          comments[index].time,
+                          commentList[index].time,
                           textAlign: TextAlign.right,
                           style: TextStyle(
                               color: isMe ? Colors.white : textSecondaryColor, fontSize: 14),
